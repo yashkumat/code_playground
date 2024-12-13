@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+        content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <link rel="icon" href="https://yashkumat.github.io/code_playgound/logo.png" type="image/png" sizes="16x16" />
+    <meta name="keywords"
+        content="Code editor for phone, Online IDE, Live preview, Web development, Programming sandbox, Developer tools, Programming practice" />
+    <meta name="author" content="Yash Kumat" />
+    <meta property="og:title" content="Code Playground" />
+    <meta property="og:type" content="Learning platform" />
+    <meta property="og:image" content="https://yashkumat.github.io/code_playgound/logo.png" />
+    <meta property="og:url" content="https://yashkumat.github.io/code_playgound/" />
+    <meta name="description" content="Interactive Code Playground - V1. Seamless coding experience and Live preview." />
+
+    <title>Code Playground</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <style>
+        :root {
+            --bg-color: #1e1e2f;
+            --text-color: #ffffff;
+            --output-bg: #282a36;
+            --button-bg: #6272a4;
+            --button-hover-bg: #44475a;
+            --font-family: 'Fira Code', monospace;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h5 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .output-heading {
+            font-size: 1rem;
+        }
+
+        textarea {
+            height: 75vh;
+            background: var(--output-bg);
+            color: var(--text-color);
+            border: none;
+            border-radius: 4px;
+            padding: 15px;
+            font-size: 1rem;
+            resize: none;
+        }
+
+        .action {
+            display: flex;
+            justify-content: start;
+            gap: 4px;
+        }
+
+        .action button {
+            background-color: var(--button-bg);
+            color: var(--text-color);
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-family: var(--font-family);
+            transition: background 0.3s ease;
+        }
+
+        .action button:hover {
+            background-color: var(--button-hover-bg);
+        }
+
+        #RLcRS9YblB {
+            height: 75vh;
+            overflow-y: auto;
+            background: var(--output-bg);
+            border-radius: 4px;
+            padding: 15px;
+        }
+
+        #MkreV7Zd0G {
+            height: 75vh;
+        }
+
+        @media only screen and (max-width: 560px) {
+            .container {
+                padding: 10px;
+            }
+
+            h5 {
+                font-size: 1rem;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                justify-content: center;
+            }
+
+            textarea,
+            #RLcRS9YblB {
+                height: 60vh;
+            }
+
+            .action button {
+                background-color: var(--button-bg);
+                color: var(--text-color);
+                border: none;
+                padding: 4px 8px;
+                border-radius: 4px;
+                font-family: var(--font-family);
+                transition: background 0.3s ease;
+            }
+
+            .action {
+                justify-content: center;
+            }
+
+            #MkreV7Zd0G {
+                height: 60vh;
+            }
+
+            #RLcRS9YblB {
+                height: 60vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row my-3">
+            <div class="col-md-12 d-flex align-items-center justify-content-center">
+                <h5><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                        class="bi bi-code-slash" viewBox="0 0 16 16">
+                        <path
+                            d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0" />
+                    </svg> Code Playground</h5>
+            </div>
+            <div class="col-md-6 my-2" id="output">
+                <textarea name="MkreV7Zd0G" class="form-control" id="MkreV7Zd0G"
+                    placeholder="Write HTML, CSS, JS code here..."></textarea>
+                <div class="action mt-2">
+                    <button class=" -outline-danger" onclick="add_boilerplate()"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="16" height="16" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
+                            <path
+                                d="M10.478 1.647a.5.5 0 1 0-.956-.294l-4 13a.5.5 0 0 0 .956.294zM4.854 4.146a.5.5 0 0 1 0 .708L1.707 8l3.147 3.146a.5.5 0 0 1-.708.708l-3.5-3.5a.5.5 0 0 1 0-.708l3.5-3.5a.5.5 0 0 1 .708 0m6.292 0a.5.5 0 0 0 0 .708L14.293 8l-3.147 3.146a.5.5 0 0 0 .708.708l3.5-3.5a.5.5 0 0 0 0-.708l-3.5-3.5a.5.5 0 0 0-.708 0" />
+                        </svg> Template</button>
+                    <button class=" -outline-danger" onclick="reset()">Reset <svg xmlns="http://www.w3.org/2000/svg"
+                            width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise"
+                            viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z" />
+                            <path
+                                d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466" />
+                        </svg> </button>
+                    <button class=" -success " id="run" onclick="show_output()">Run <svg
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                            class="bi bi-play" viewBox="0 0 16 16">
+                            <path
+                                d="M10.804 8 5 4.633v6.734zm.792-.696a.802.802 0 0 1 0 1.392l-6.363 3.692C4.713 12.69 4 12.345 4 11.692V4.308c0-.653.713-.998 1.233-.696z" />
+                        </svg></button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="border rounded-2 border-1 p-3 mt-2" id="RLcRS9YblB"></div>
+                <p class="text-end py-3 output-heading">Output <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                        height="16" fill="currentColor" class="bi bi-columns-gap" viewBox="0 0 16 16">
+                        <path
+                            d="M6 1v3H1V1zM1 0a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1zm14 12v3h-5v-3zm-5-1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1zM6 8v7H1V8zM1 7a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1zm14-6v7h-5V1zm-5-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1V1a1 1 0 0 0-1-1z" />
+                    </svg></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function show_output() {
+            let code = document.getElementById('MkreV7Zd0G').value
+            document.getElementById('RLcRS9YblB').innerHTML = code
+        }
+        function reset() {
+            document.getElementById('MkreV7Zd0G').value = ''
+            document.getElementById('RLcRS9YblB').innerHTML = ''
+        }
+        function add_boilerplate() {
+            var myHtml = [
+                '<html>',
+                '<head>',
+                '\t<title>title here...</title>',
+                '\t<style>',
+                '\t\t//CSS Here',
+                '\t</style>',
+                '</head>',
+                '<body>',
+                '\n\t//HTML Here',
+                '\n\t<script>',
+                '\t\t//JS Here',
+                '\t<' + '/script>',
+                '<' + '/body> ',
+                '<' + '/html> '].join("\n");
+
+            document.getElementById('MkreV7Zd0G').value = myHtml
+
+        }
+    </script>
+</body>
+
+</html>
