@@ -157,7 +157,7 @@
             </div>
             <div class="col-md-6 my-2" id="output">
                 <textarea name="MkreV7Zd0G" class="form-control" id="MkreV7Zd0G"
-                    placeholder="Write HTML, CSS, JS code here..."></textarea>
+                    placeholder="Write HTML code here..."></textarea>
                 <div class="action mt-2">
                     <button class=" -outline-danger" onclick="add_boilerplate()"><svg xmlns="http://www.w3.org/2000/svg"
                             width="16" height="16" fill="currentColor" class="bi bi-code-slash" viewBox="0 0 16 16">
@@ -205,16 +205,10 @@
                 '<html>',
                 '<head>',
                 '\t<title>title here...</title>',
-                '\t<style>',
-                '\t\t//CSS Here',
-                '\t</style>',
                 '</head>',
                 '<body>',
-                '\n\t<!-' + '- HTML Here --' + '>',
-                '\n\t<script>',
-                '\t\t//JS Here',
-                '\t<' + '/script>',
-                '<' + '/body> ',
+                '\t<!-' + '- HTML Here --' + '>',
+                '\n<' + '/body> ',
                 '<' + '/html> '].join("\n");
 
             document.getElementById('MkreV7Zd0G').value = myHtml
